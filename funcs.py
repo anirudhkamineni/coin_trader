@@ -164,7 +164,7 @@ def plot_macd_graph(cum_price_dict):
     plt.show()
     
 def ochl_analysis(cum_price_dict):
-    data_frame = pd.DataFrame(cum_price_dict["VEN"])
+    data_frame = pd.DataFrame(cum_price_dict["ETH"])
     data_frame.index = pd.to_datetime(data_frame.index, unit='s')    
     ewma_data = pd.DataFrame.ewm(data_frame,span=12)
     ewm_frame = ewma_data.mean()
@@ -177,13 +177,13 @@ def ochl_analysis(cum_price_dict):
 def candle_analysis(cd_data,data_frame):
     #print(cd_data)
     #print(cd_data[0][-5:])
-    a = (ta.CDL3BLACKCROWS(cd_data[0].open,cd_data[0].high,cd_data[0].low,cd_data[0].close))
+    a = (ta.CDLDOJI(cd_data[0].open,cd_data[0].high,cd_data[0].low,cd_data[0].close))
     print(a[a != 0.0].index)
     fig, ax = plt.subplots()
-    fin.candlestick2_ochl(ax, cd_data[0].open,cd_data[0].close,cd_data[0].high,cd_data[0].low,colorup='g',colordown='r')
+    #fin.candlestick2_ochl(ax, cd_data[0].open,cd_data[0].close,cd_data[0].high,cd_data[0].low,colorup='g',colordown='r')
     #plt.plot(np.linspace(1,1000/6,1000),ewm_frame)
-    #plt.plot(data_frame)
-    #plt.scatter(a[a != 0].index,data_frame[0][a[a != 0].index],marker='o',c='r')
+    plt.plot(data_frame)
+    plt.scatter(a[a != 0].index,data_frame[0][a[a != 0].index],marker='o',c='r')
     plt.show()
     #end
 
@@ -196,6 +196,5 @@ def momentum_analysis(cd_data,data_frame,ewm_frame):
     #ax1.plot(a,color='r')
     #plt.show()
     return a
-
 
     

@@ -1,4 +1,2 @@
-DOGE
-MGO
-ONT
-ZRX
+ITC
+AION

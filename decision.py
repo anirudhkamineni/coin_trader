@@ -39,7 +39,9 @@ prince_list = fall_of_a_prince(cum_price_dict, vol_dict);
 
 #plot_vol_and_price_graph(cum_price_dict, vol_dict);
 #plot_macd_graph(cum_price_dict)
-#ochl_analysis(cum_price_dict)
+
+#Candlestick analysis
+ochl_analysis(cum_price_dict)
 
 
 #Identify a crash; if 80% of the top 50 coins are on the down trend for a period, then it is a crash, Might not be necessary as I am planning to day trade
